@@ -1,0 +1,55 @@
+h=5
+while h>0:
+    import random
+    chance=5
+    j=[]
+    print('Welcome to word puzzle')
+    print('You have 5 chances\nGuess the fruit namee')
+    def wrds():
+            global j
+            l=['mango','apple','orange','banana','guava','cherry','grape','jackfruit','kiwi','pappaya']
+            global m
+            m=random.choice(l)
+            k=len(m)
+            print(k*'_ ')
+            for z in range(k):
+                j.append('_')
+    wrds()
+    def letter(q):
+        global chance
+    
+        while chance>0:
+            print('\nChance:',chance)
+            n=input('\nWrite a guessed letter:')
+            if len(n)>1:
+                print('Enter a single letter*')
+                pass
+            n=n.lower()
+            a=0
+            if n in q:
+                for i in q:
+                    if i==n:
+                        j[a]=n
+                        a+=1
+                    else:
+                        a+=1
+            
+            else:
+                chance-=1
+                print('Wrong letter')
+            for x in j:
+                    print(x,end=' ')
+            if '_' not in j:
+                 print('\nYou wonn!!')
+                 chance=-1
+        if chance==0:
+            print('\nGAME OVRR!!')
+            print('The fruit is:',m)
+       
+    letter(m)
+    h=input('Do u want to continue(Yes or No)')
+    h.lower()
+    if h in 'not':
+        h=-5
+    else:
+        h=5
